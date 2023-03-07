@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan')
 
 //initializations
 const app = express();
