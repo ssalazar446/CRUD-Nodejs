@@ -4,6 +4,6 @@ const router = express.Router();
 const pool = require('../database')
 
 router.get('/add', (req, res) =>{
-    res.send('Form');
+    res.render('links/add');
 })
 module.exports = router;
