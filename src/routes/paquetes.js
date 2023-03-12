@@ -14,6 +14,7 @@ router.post('/add', async (req, res) => {
         description
     };
     await pool.query('INSERT INTO paquetes set ?', [newPack]);
+    req.flash('success', 'Paquete creado correctamente');
     res.redirect('/links')
 });
 
@@ -26,6 +27,7 @@ router.get('/', async (req, res) => {
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
     await pool.query('DELETE FROM paquetes WHERE ID = ?', [id]);
+    req.flash('success', 'Paquete eliminado correctamente');
     res.redirect('/links')
 });
 
@@ -44,6 +46,7 @@ router.post('/edit/:id', async (req, res) => {
         description,
     };
     await pool.query('UPDATE paquetes set ? WHERE id = ?', [newPack, id]);
+    req.flash('success', 'Paquete actualizado correctamente');
     res.redirect('/links');
 });
 module.exports = router;
